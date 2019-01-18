@@ -1,3 +1,6 @@
+
+## import all necessary packages and functions
+
 import pandas as pd
 import datetime
 import time
@@ -7,6 +10,10 @@ import collections as clct
 # chicago: 'chicago.csv'
 # new_york_city: 'new_york_city.csv'
 # washington: 'washington.csv'
+
+
+
+
 
 def get_city():
 
@@ -23,6 +30,10 @@ def get_city():
            city_input = input('\nPlease enter the correct city. (e.g: Chicago, New York, or Washington)\n')
 
     return city, city_input.lower()
+
+
+
+
 
 
 def get_time_period():
@@ -54,6 +65,9 @@ def get_month():
     return month
 
 
+
+
+
 def get_day():
 
     day_list = {'m': 0, 'tu': 1, 'wed': 2, 'th': 3, 'fr': 4 , 'sat': 5, 'sun': 6}
@@ -68,6 +82,9 @@ def get_day():
             day_input = input('\nPlease enter the correct day. (e.g: M, Tu, Wed, Th, Fr or Sat)\n')
 
     return day
+
+
+
 
 
 def start_time_data_format(city_file):
@@ -94,6 +111,9 @@ def start_time_data_format(city_file):
     start_time_df = pd.DataFrame({ 'Sec': sec_list, 'Year': year_list, 'Month': month_list,'Minute': minut_list,'Hour': hour_list, 'Day': day_list, 'Week': week_list})
 
     return start_time_df
+
+
+
 
 
 def popular_month(filter_for,time_period, start_time_df):
@@ -124,6 +144,9 @@ def popular_month(filter_for,time_period, start_time_df):
         print("Month: {}\n".format(month_list[month]))
 
 
+
+
+
 def popular_day(time_period, start_time_df, filter_for):
     '''
     Question: What is the most popular day of week (Monday, Tuesday, etc.) for start time?
@@ -151,6 +174,9 @@ def popular_day(time_period, start_time_df, filter_for):
     print("Most popular day of week for start time.\n")
     if week in week_list.keys():
         print("Day: {}\n".format(week_list[week]))
+
+
+
 
 
 def popular_hour(time_period, start_time_df, filter_for):
@@ -183,6 +209,9 @@ def popular_hour(time_period, start_time_df, filter_for):
     print("Hour: {}\n".format(hour))
 
 
+
+
+
 def trip_duration(city_file, time_period, start_time_df, filter_for):
     '''
     Question: What is the total trip duration and average trip duration?
@@ -209,6 +238,9 @@ def trip_duration(city_file, time_period, start_time_df, filter_for):
     print("***************************************************************************")
     print("Total trip duration and average trip duration.\n")
     print("Total Trip Duration: {} seconds\nAverage Trip Duration: {} seconds\n".format(total_trip_duration, avg_trip_duration))
+
+
+
 
 
 def popular_stations(city_file, time_period, filter_for, start_time_df):
@@ -276,6 +308,9 @@ def users(city_file, time_period, start_time_df, filter_for):
     print("{}: {}\n{}: {}\n".format(user_type_count_df.loc[0,0], user_type_count_df.loc[0,1], user_type_count_df.loc[1,0], user_type_count_df.loc[1,1]))
 
 
+
+
+
 def gender(city_file, time_period, filter_for, start_time_df):
     '''
     Question: What are the counts of gender?
@@ -330,6 +365,9 @@ def birth_years(city_file, time_period, filter_for, start_time_df):
     print("Oldest Year: {}\nYoungest Year: {}\nMost Popular: {}\n".format(oldest_year, youngest_year, popular_year))
 
 
+
+
+
 def popular_trip(filtered_start_station, filtered_end_station, time_period):
     '''
     Question: What is the most popular trip?
@@ -349,6 +387,9 @@ def popular_trip(filtered_start_station, filtered_end_station, time_period):
     print("{}\nCount:{}\n".format(trip_count_df.loc[max_index_row, 0], trip_count_df.loc[max_index_row, 1]))
 
 
+
+
+
 def display_data(city_file):
 
     display = input('\nWould you like to view individual trip data?'
@@ -362,6 +403,9 @@ def display_data(city_file):
 
         display = input('\nwould like to see five more?'
                         'Type \'yes\' or \'stop\'.\n')
+
+
+
 
 
 def statistics():
